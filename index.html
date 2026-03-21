@@ -18,10 +18,6 @@
     font-family:'Poppins',sans-serif;
 }
 
-html{
-    /* Smooth scroll handled by JavaScript for better control */
-}
-
 body{
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     color:#333;
@@ -35,14 +31,8 @@ section{
 }
 
 @keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes float {
@@ -50,32 +40,24 @@ section{
     50% { transform: translateY(-20px); }
 }
 
-@keyframes gradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
 @keyframes slideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
 
 @keyframes slideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
 }
 
 /* ================= NAVBAR ================= */
@@ -130,13 +112,8 @@ nav a::after {
     transform: translateX(-50%);
 }
 
-nav a:hover::after {
-    width: 100%;
-}
-
-nav a:hover{
-    color:#4da3ff;
-}
+nav a:hover::after { width: 100%; }
+nav a:hover { color:#4da3ff; }
 
 /* ================= HERO ================= */
 .hero{
@@ -163,23 +140,13 @@ nav a:hover{
     background-clip: text;
 }
 
-.hero h3{
-    color:#4da3ff;
-    margin:10px 0 20px;
-    font-size: 24px;
-}
-
-.hero p{
-    margin-bottom:30px;
-    font-size: 18px;
-    color: #555;
-}
+.hero h3{ color:#4da3ff; margin:10px 0 20px; font-size: 24px; }
+.hero p{ margin-bottom:30px; font-size: 18px; color: #555; }
 
 .btn{
     display:inline-block;
     padding:14px 32px;
     background: linear-gradient(135deg, #1f3a5f, #4da3ff);
-    background-size: 200% 200%;
     color:white;
     border-radius:50px;
     text-decoration:none;
@@ -193,30 +160,18 @@ nav a:hover{
 .btn::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
     background: rgba(255, 255, 255, 0.2);
     transition: all 0.4s ease;
 }
+.btn:hover::before { left: 100%; }
+.btn:hover{ transform:translateY(-3px); box-shadow: 0 10px 25px rgba(77, 163, 255, 0.5); }
 
-.btn:hover::before {
-    left: 100%;
-}
-
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow: 0 10px 25px rgba(77, 163, 255, 0.5);
-}
-
-.hero-image {
-    animation: slideInRight 1s ease-out;
-}
+.hero-image { animation: slideInRight 1s ease-out; }
 
 .hero img{
-    width:320px;
-    height: 320px;
+    width:320px; height: 320px;
     border-radius:50%;
     box-shadow: 0 20px 60px rgba(0,0,0,.2);
     object-fit: cover;
@@ -225,7 +180,7 @@ nav a:hover{
     transition: all 0.3s ease;
 }
 
-.hero img:hover {
+.hero img:hover{
     transform: scale(1.05);
     box-shadow: 0 25px 70px rgba(77, 163, 255, 0.4);
 }
@@ -245,11 +200,9 @@ nav a:hover{
 .section-title::after {
     content: '';
     position: absolute;
-    width: 80px;
-    height: 4px;
+    width: 80px; height: 4px;
     background: linear-gradient(135deg, #1f3a5f, #4da3ff);
-    bottom: -15px;
-    left: 50%;
+    bottom: -15px; left: 50%;
     transform: translateX(-50%);
     border-radius: 2px;
 }
@@ -268,19 +221,10 @@ nav a:hover{
     box-shadow: 0 10px 40px rgba(0,0,0,.1);
     transition: all 0.3s ease;
 }
-
-.about:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 50px rgba(0,0,0,.15);
-}
+.about:hover{ transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,0,0,.15); }
 
 /* ================= SKILLS ================= */
-.skills-grid{
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:20px;
-}
+.skills-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
 
 .skill{
     background: linear-gradient(135deg, #1f3a5f, #2d4a6f);
@@ -298,21 +242,14 @@ nav a:hover{
 .skill::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
+    top: 50%; left: 50%;
+    width: 0; height: 0;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.2);
     transform: translate(-50%, -50%);
     transition: width 0.4s ease, height 0.4s ease;
 }
-
-.skill:hover::before {
-    width: 300px;
-    height: 300px;
-}
-
+.skill:hover::before { width: 300px; height: 300px; }
 .skill:hover{
     background: linear-gradient(135deg, #4da3ff, #66b3ff);
     transform:translateY(-5px) scale(1.05);
@@ -340,7 +277,7 @@ nav a:hover{
     flex-direction: column;
 }
 
-.project-header {
+.project-header{
     background: linear-gradient(135deg, #1f3a5f, #4da3ff);
     padding: 30px 25px;
     color: white;
@@ -351,34 +288,27 @@ nav a:hover{
 .project-header::before {
     content: '';
     position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 200%;
-    height: 200%;
+    top: -50%; right: -50%;
+    width: 200%; height: 200%;
     background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
 }
 
-@keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.project-header h4 {
+.project-header h4{
     font-size: 22px;
     margin-bottom: 0;
     position: relative;
     z-index: 1;
 }
 
-.project-body {
+.project-body{
     padding: 25px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
 }
 
-.project-body p {
+.project-body p{
     color: #555;
     margin-bottom: 20px;
     line-height: 1.7;
@@ -386,14 +316,9 @@ nav a:hover{
     flex-grow: 1;
 }
 
-.tech-stack {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: auto;
-}
+.tech-stack{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
 
-.tech-tag {
+.tech-tag{
     background: linear-gradient(135deg, #e8f4ff, #d4e9ff);
     color: #1f3a5f;
     padding: 6px 14px;
@@ -403,8 +328,7 @@ nav a:hover{
     border: 1px solid #4da3ff;
     transition: all 0.3s ease;
 }
-
-.tech-tag:hover {
+.tech-tag:hover{
     background: linear-gradient(135deg, #4da3ff, #66b3ff);
     color: white;
     transform: translateY(-2px);
@@ -418,25 +342,101 @@ nav a:hover{
 .project-card::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
+    bottom: 0; left: 0;
+    width: 100%; height: 4px;
     background: linear-gradient(90deg, #1f3a5f, #4da3ff, #1f3a5f);
     background-size: 200% 100%;
     animation: shimmer 3s linear infinite;
 }
 
-@keyframes shimmer {
-    0% { background-position: -200% 0; }
-    100% { background-position: 200% 0; }
+/* ================= FEATURED / ML PROJECT CARD ================= */
+.project-card.featured {
+    grid-column: span 1;
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, #7c3aed, #4da3ff, #06b6d4) border-box;
+    box-shadow: 0 15px 40px rgba(124, 58, 237, 0.2);
+}
+
+.project-card.featured .project-header {
+    background: linear-gradient(135deg, #4c1d95, #7c3aed, #2563eb);
+}
+
+.project-card.featured::after {
+    background: linear-gradient(90deg, #7c3aed, #4da3ff, #06b6d4, #7c3aed);
+    background-size: 300% 100%;
+    animation: shimmer 2s linear infinite;
+    height: 5px;
+}
+
+.project-card.featured:hover {
+    box-shadow: 0 25px 60px rgba(124, 58, 237, 0.35);
+    transform: translateY(-12px);
+}
+
+.featured-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.35);
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    backdrop-filter: blur(6px);
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+}
+
+.featured-badge::before {
+    content: '✦';
+    font-size: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+}
+
+.project-card.featured .tech-tag {
+    background: linear-gradient(135deg, #ede9fe, #ddd6fe);
+    color: #4c1d95;
+    border-color: #7c3aed;
+}
+
+.project-card.featured .tech-tag:hover {
+    background: linear-gradient(135deg, #7c3aed, #6d28d9);
+    color: white;
+}
+
+/* ML highlight chip */
+.ml-highlight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+    border: 1px solid #c4b5fd;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: #4c1d95;
+    font-weight: 600;
+}
+
+.ml-highlight span {
+    font-size: 18px;
 }
 
 /* ================= EDUCATION ================= */
-.timeline{
-    max-width:700px;
-    margin:auto;
-}
+.timeline{ max-width:700px; margin:auto; }
 
 .timeline-item{
     background: white;
@@ -453,18 +453,13 @@ nav a:hover{
 .timeline-item::before {
     content: '';
     position: absolute;
-    left: -6px;
-    top: 0;
-    width: 6px;
-    height: 0;
+    left: -6px; top: 0;
+    width: 6px; height: 0;
     background: linear-gradient(180deg, #4da3ff, #1f3a5f);
     transition: height 0.4s ease;
 }
 
-.timeline-item:hover::before {
-    height: 100%;
-}
-
+.timeline-item:hover::before { height: 100%; }
 .timeline-item:hover{
     transform:translateX(10px);
     box-shadow: 0 8px 30px rgba(77, 163, 255, 0.2);
@@ -482,10 +477,7 @@ nav a:hover{
     margin: auto;
 }
 
-.contact p {
-    margin: 20px 0;
-    font-size: 18px;
-}
+.contact p{ margin: 20px 0; font-size: 18px; }
 
 .contact a{
     color:#4da3ff;
@@ -498,21 +490,13 @@ nav a:hover{
 .contact a::after {
     content: '';
     position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -2px;
-    left: 0;
+    width: 0; height: 2px;
+    bottom: -2px; left: 0;
     background: linear-gradient(135deg, #1f3a5f, #4da3ff);
     transition: width 0.3s ease;
 }
-
-.contact a:hover::after {
-    width: 100%;
-}
-
-.contact a:hover{
-    color:#1f3a5f;
-}
+.contact a:hover::after { width: 100%; }
+.contact a:hover { color:#1f3a5f; }
 
 /* ================= FOOTER ================= */
 footer{
@@ -524,59 +508,30 @@ footer{
 }
 
 /* ================= SCROLL ANIMATIONS ================= */
-.fade-in {
+.fade-in{
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
 }
-
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-}
+.fade-in.visible{ opacity: 1; transform: translateY(0); }
 
 /* ================= RESPONSIVE ================= */
 @media(max-width:900px){
-    .hero{
-        flex-direction:column-reverse;
-        text-align:center;
-    }
-    .hero img{
-        margin-bottom:30px;
-        width: 250px;
-        height: 250px;
-    }
-    .hero h1{
-        font-size: 42px;
-    }
-    .section-title{
-        font-size: 32px;
-    }
-    section{
-        padding: 60px 5%;
-    }
-    nav{
-        padding: 15px 5%;
-    }
-    .projects-grid{
-        grid-template-columns: 1fr;
-    }
+    .hero{ flex-direction:column-reverse; text-align:center; }
+    .hero img{ margin-bottom:30px; width: 250px; height: 250px; }
+    .hero h1{ font-size: 42px; }
+    .section-title{ font-size: 32px; }
+    section{ padding: 60px 5%; }
+    nav{ padding: 15px 5%; }
+    .projects-grid{ grid-template-columns: 1fr; }
+    .project-card.featured { grid-column: span 1; }
 }
 
 @media(max-width:600px){
-    .hero h1{
-        font-size: 36px;
-    }
-    .hero h3{
-        font-size: 20px;
-    }
-    nav h2{
-        font-size: 22px;
-    }
-    nav a{
-        margin-left: 15px;
-        font-size: 14px;
-    }
+    .hero h1{ font-size: 36px; }
+    .hero h3{ font-size: 20px; }
+    nav h2{ font-size: 22px; }
+    nav a{ margin-left: 15px; font-size: 14px; }
 }
 
 </style>
@@ -607,7 +562,6 @@ footer{
         </p>
         <a href="resume.pdf" download class="btn">Download Resume</a>
     </div>
-
     <div class="hero-image">
         <img src="f1.jpg" alt="Krishna Prajapati">
     </div>
@@ -638,6 +592,8 @@ footer{
         <div class="skill fade-in">Data Structures</div>
         <div class="skill fade-in">HTML/CSS</div>
         <div class="skill fade-in">JavaScript</div>
+        <div class="skill fade-in">Machine Learning</div>
+        <div class="skill fade-in">Flask</div>
     </div>
 </section>
 
@@ -646,6 +602,30 @@ footer{
 <section id="projects">
     <h2 class="section-title">Projects</h2>
     <div class="projects-grid">
+
+        <!-- MENTAL HEALTH — FEATURED -->
+        <div class="project-card featured fade-in">
+            <div class="project-header">
+                <div class="featured-badge">Featured Project</div>
+                <h4>🧠 Mental Health Prediction System</h4>
+            </div>
+            <div class="project-body">
+                <div class="ml-highlight">
+                    <span>🤖</span>
+                    ML-powered prediction with real-time Firebase sync
+                </div>
+                <p>An intelligent mental health assessment platform that leverages machine learning algorithms to analyze user responses and predict mental health conditions. Features an interactive Streamlit dashboard for data visualization, a Flask REST API backend, and Firebase for secure real-time data storage and user authentication. Provides personalized insights, risk-level indicators, and resource recommendations based on prediction results.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Flask</span>
+                    <span class="tech-tag">Streamlit</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">Scikit-learn</span>
+                    <span class="tech-tag">Pandas</span>
+                </div>
+            </div>
+        </div>
 
         <div class="project-card fade-in">
             <div class="project-header">
@@ -740,21 +720,15 @@ footer{
     <h2 class="section-title">Get In Touch</h2>
 
     <p>📧 Email:
-        <a href="mailto:kp602552@gmail.com">
-            kp602552@gmail.com
-        </a>
+        <a href="mailto:kp602552@gmail.com">kp602552@gmail.com</a>
     </p>
 
     <p>💻 GitHub:
-        <a href="https://github.com/Krishna-0510" target="_blank">
-            github.com/Krishna-0510
-        </a>
+        <a href="https://github.com/Krishna-0510" target="_blank">github.com/Krishna-0510</a>
     </p>
 
     <p>🔗 LinkedIn:
-        <a href="https://www.linkedin.com/in/krishna-prajapati-781481343/" target="_blank">
-            linkedin.com/in/krishna-prajapati-781481343
-        </a>
+        <a href="https://www.linkedin.com/in/krishna-prajapati-781481343/" target="_blank">linkedin.com/in/krishna-prajapati-781481343</a>
     </p>
 </section>
 
@@ -764,7 +738,6 @@ footer{
 </footer>
 
 <script>
-// Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -774,26 +747,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
-// Intersection Observer for fade-in animations
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
         }
     });
-}, observerOptions);
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-// Observe all fade-in elements
 document.querySelectorAll('.fade-in').forEach(element => {
     observer.observe(element);
 });
 
-// Smooth scroll for navigation links
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
@@ -801,11 +766,7 @@ document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         if (targetId && targetId !== '#') {
             const targetSection = document.querySelector(targetId);
             if (targetSection) {
-                const offsetTop = targetSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: targetSection.offsetTop - 80, behavior: 'smooth' });
             }
         }
     });
