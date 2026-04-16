@@ -4,9 +4,10 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<title>Krishna Prajapati | Developer Portfolio</title>
+<title>Krishna Prajapati | Full-Stack Developer Portfolio</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 
@@ -60,6 +61,16 @@ section{
     100% { background-position: 200% 0; }
 }
 
+@keyframes glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(77, 163, 255, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(77, 163, 255, 0.6); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.3); }
+}
+
 /* ================= NAVBAR ================= */
 nav{
     position:fixed;
@@ -79,6 +90,7 @@ nav{
 nav.scrolled {
     padding: 10px 10%;
     box-shadow: 0 5px 30px rgba(0,0,0,.15);
+    background: rgba(255, 255, 255, 0.98);
 }
 
 nav h2{
@@ -89,6 +101,7 @@ nav h2{
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.5px;
 }
 
 nav a{
@@ -98,6 +111,7 @@ nav a{
     font-weight:500;
     transition: all 0.3s ease;
     position: relative;
+    font-size: 15px;
 }
 
 nav a::after {
@@ -138,10 +152,28 @@ nav a:hover { color:#4da3ff; }
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.2;
 }
 
-.hero h3{ color:#4da3ff; margin:10px 0 20px; font-size: 24px; }
-.hero p{ margin-bottom:30px; font-size: 18px; color: #555; }
+.hero h3{ 
+    color:#4da3ff; 
+    margin:10px 0 20px; 
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.hero p{ 
+    margin-bottom:30px; 
+    font-size: 18px; 
+    color: #555;
+    line-height: 1.8;
+}
+
+.btn-group {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
 
 .btn{
     display:inline-block;
@@ -155,6 +187,15 @@ nav a:hover { color:#4da3ff; }
     box-shadow: 0 5px 15px rgba(77, 163, 255, 0.3);
     position: relative;
     overflow: hidden;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn.secondary {
+    background: white;
+    color: #1f3a5f;
+    border: 2px solid #4da3ff;
 }
 
 .btn::before {
@@ -168,10 +209,16 @@ nav a:hover { color:#4da3ff; }
 .btn:hover::before { left: 100%; }
 .btn:hover{ transform:translateY(-3px); box-shadow: 0 10px 25px rgba(77, 163, 255, 0.5); }
 
+.btn.secondary:hover {
+    background: #4da3ff;
+    color: white;
+}
+
 .hero-image { animation: slideInRight 1s ease-out; }
 
 .hero img{
-    width:320px; height: 320px;
+    width:320px; 
+    height: 320px;
     border-radius:50%;
     box-shadow: 0 20px 60px rgba(0,0,0,.2);
     object-fit: cover;
@@ -210,26 +257,52 @@ nav a:hover { color:#4da3ff; }
 /* ================= ABOUT ================= */
 .about{
     text-align:center;
-    max-width:800px;
+    max-width:900px;
     margin:auto;
     font-size: 18px;
     color: #555;
     line-height: 1.8;
     background: white;
-    padding: 40px;
+    padding: 50px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,.1);
     transition: all 0.3s ease;
+    border: 1px solid rgba(77, 163, 255, 0.1);
 }
-.about:hover{ transform: translateY(-5px); box-shadow: 0 15px 50px rgba(0,0,0,.15); }
+.about:hover{ 
+    transform: translateY(-5px); 
+    box-shadow: 0 15px 50px rgba(0,0,0,.15);
+    border-color: rgba(77, 163, 255, 0.3);
+}
 
 /* ================= SKILLS ================= */
-.skills-grid{ display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.skills-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skills-category {
+    margin-bottom: 50px;
+}
+
+.skills-category h3 {
+    color: #1f3a5f;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.skills-grid{ 
+    display:flex; 
+    flex-wrap:wrap; 
+    justify-content:center; 
+    gap:15px;
+}
 
 .skill{
     background: linear-gradient(135deg, #1f3a5f, #2d4a6f);
     color:white;
-    padding:15px 30px;
+    padding:12px 28px;
     border-radius:50px;
     transition: all 0.3s ease;
     font-weight: 600;
@@ -237,6 +310,7 @@ nav a:hover { color:#4da3ff; }
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    font-size: 14px;
 }
 
 .skill::before {
@@ -264,7 +338,6 @@ nav a:hover { color:#4da3ff; }
     align-items: stretch;
 }
 
-/* Featured card spans full width on top */
 .project-card.featured {
     grid-column: 1 / -1;
 }
@@ -280,6 +353,7 @@ nav a:hover { color:#4da3ff; }
     height: 100%;
     display: flex;
     flex-direction: column;
+    border: 1px solid rgba(77, 163, 255, 0.1);
 }
 
 .project-header{
@@ -304,10 +378,11 @@ nav a:hover { color:#4da3ff; }
     margin-bottom: 0;
     position: relative;
     z-index: 1;
+    font-weight: 700;
 }
 
 .project-body{
-    padding: 25px;
+    padding: 30px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -321,7 +396,39 @@ nav a:hover { color:#4da3ff; }
     flex-grow: 1;
 }
 
-.tech-stack{ display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+.project-links {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #4da3ff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border: 1px solid #4da3ff;
+    border-radius: 20px;
+}
+
+.project-link:hover {
+    background: #4da3ff;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.tech-stack{ 
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 8px; 
+    margin-top: auto;
+}
 
 .tech-tag{
     background: linear-gradient(135deg, #e8f4ff, #d4e9ff);
@@ -405,11 +512,6 @@ nav a:hover { color:#4da3ff; }
     animation: pulse 1.5s ease-in-out infinite;
 }
 
-@keyframes pulse {
-    0%, 100% { opacity: 1; transform: scale(1); }
-    50% { opacity: 0.6; transform: scale(1.3); }
-}
-
 .project-card.featured .tech-tag {
     background: linear-gradient(135deg, #ede9fe, #ddd6fe);
     color: #4c1d95;
@@ -421,7 +523,6 @@ nav a:hover { color:#4da3ff; }
     color: white;
 }
 
-/* ML highlight chip */
 .ml-highlight {
     display: flex;
     align-items: center;
@@ -440,19 +541,80 @@ nav a:hover { color:#4da3ff; }
     font-size: 18px;
 }
 
+/* FULLSTACK HIGHLIGHT */
+.fullstack-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #fef3c7, #fde68a);
+    border: 1px solid #fcd34d;
+    color: #78350f;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    width: fit-content;
+    position: relative;
+    z-index: 1;
+}
+
+.fullstack-badge::before {
+    content: '⚡';
+    font-size: 10px;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+.fullstack-highlight {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #fffbeb, #fef3c7);
+    border: 1px solid #fcd34d;
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 14px;
+    font-size: 13px;
+    color: #78350f;
+    font-weight: 600;
+}
+
+.fullstack-highlight span {
+    font-size: 18px;
+}
+
 /* ================= EDUCATION ================= */
-.timeline{ max-width:700px; margin:auto; }
+.timeline{ 
+    max-width:700px; 
+    margin:auto;
+}
 
 .timeline-item{
     background: white;
-    padding:25px 30px;
-    margin-bottom:20px;
+    padding:30px;
+    margin-bottom:25px;
     border-left:6px solid #4da3ff;
-    border-radius:10px;
+    border-radius:15px;
     transition: all 0.3s ease;
     box-shadow: 0 5px 20px rgba(0,0,0,.08);
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(77, 163, 255, 0.1);
+}
+
+.timeline-item h4 {
+    color: #1f3a5f;
+    font-size: 18px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.timeline-item p {
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .timeline-item::before {
@@ -475,14 +637,22 @@ nav a:hover { color:#4da3ff; }
 .contact{
     text-align:center;
     background: white;
-    padding: 50px;
+    padding: 60px;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0,0,0,.1);
     max-width: 700px;
     margin: auto;
+    border: 1px solid rgba(77, 163, 255, 0.1);
 }
 
-.contact p{ margin: 20px 0; font-size: 18px; }
+.contact p{ 
+    margin: 20px 0; 
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 
 .contact a{
     color:#4da3ff;
@@ -503,6 +673,32 @@ nav a:hover { color:#4da3ff; }
 .contact a:hover::after { width: 100%; }
 .contact a:hover { color:#1f3a5f; }
 
+.social-links {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #1f3a5f, #4da3ff);
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 20px;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 25px rgba(77, 163, 255, 0.4);
+}
+
 /* ================= FOOTER ================= */
 footer{
     background: linear-gradient(135deg, #1f3a5f, #2d4a6f);
@@ -510,6 +706,7 @@ footer{
     text-align:center;
     padding:30px;
     font-size: 16px;
+    margin-top: 40px;
 }
 
 /* ================= SCROLL ANIMATIONS ================= */
@@ -528,15 +725,21 @@ footer{
     .section-title{ font-size: 32px; }
     section{ padding: 60px 5%; }
     nav{ padding: 15px 5%; }
+    nav a { margin-left: 15px; }
     .projects-grid{ grid-template-columns: 1fr; }
     .project-card.featured { grid-column: 1 / -1; }
+    .btn-group { flex-direction: column; }
+    .btn { width: 100%; }
 }
 
 @media(max-width:600px){
     .hero h1{ font-size: 36px; }
     .hero h3{ font-size: 20px; }
     nav h2{ font-size: 22px; }
-    nav a{ margin-left: 15px; font-size: 14px; }
+    nav a{ margin-left: 12px; font-size: 13px; }
+    .section-title { font-size: 28px; }
+    .contact { padding: 40px 20px; }
+    section { padding: 60px 5%; }
 }
 
 </style>
@@ -546,7 +749,7 @@ footer{
 
 <!-- NAVBAR -->
 <nav id="navbar">
-    <h2>Krishna</h2>
+    <h2>🚀 Krishna</h2>
     <div>
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
@@ -560,12 +763,16 @@ footer{
 <section class="hero">
     <div class="hero-text">
         <h1>Hi, I'm Krishna 👋</h1>
-        <h3>Aspiring Software Developer</h3>
+        <h3>Full-Stack Developer</h3>
         <p>
             MCA student passionate about building scalable web applications,
-            solving real problems, and learning modern technologies.
+            crafting seamless user experiences, and deploying production-ready solutions.
+            Specializing in MERN stack, cloud deployment, and intelligent systems.
         </p>
-        <a href="resume.pdf" download class="btn">Download Resume</a>
+        <div class="btn-group">
+            <a href="resume.pdf" download class="btn">📥 Download Resume</a>
+            <a href="#projects" class="btn secondary">👨‍💻 View My Work</a>
+        </div>
     </div>
     <div class="hero-image">
         <img src="f1.jpg" alt="Krishna Prajapati">
@@ -577,10 +784,10 @@ footer{
 <section id="about">
     <h2 class="section-title">About Me</h2>
     <div class="about fade-in">
-        I am a detail-oriented developer with strong knowledge of
-        ASP.NET, Java, MySQL, and Data Structures. I enjoy building
-        full-stack projects and continuously improving my skills through 
-        hands-on development and exploring cutting-edge technologies.
+        <p>I'm a dedicated developer with a strong foundation in full-stack web development and machine learning. 
+        With expertise in MERN stack, ASP.NET, and cloud deployment platforms like Vercel and Firebase, 
+        I build end-to-end solutions from concept to production. I'm passionate about leveraging modern technologies 
+        to solve real-world problems and continuously staying at the forefront of web development innovation.</p>
     </div>
 </section>
 
@@ -588,30 +795,92 @@ footer{
 <!-- SKILLS -->
 <section id="skills">
     <h2 class="section-title">Skills</h2>
-    <div class="skills-grid">
-        <div class="skill fade-in">Python</div>
-        <div class="skill fade-in">Java</div>
-        <div class="skill fade-in">C++</div>
-        <div class="skill fade-in">ASP.NET</div>
-        <div class="skill fade-in">MySQL</div>
-        <div class="skill fade-in">Data Structures</div>
-        <div class="skill fade-in">HTML/CSS</div>
-        <div class="skill fade-in">JavaScript</div>
-        <div class="skill fade-in">Machine Learning</div>
-        <div class="skill fade-in">Flask</div>
+    <div class="skills-container">
+        <div class="skills-category">
+            <h3>🎨 Frontend</h3>
+            <div class="skills-grid">
+                <div class="skill fade-in">HTML5/CSS3</div>
+                <div class="skill fade-in">JavaScript</div>
+                <div class="skill fade-in">React.js</div>
+                <div class="skill fade-in">Responsive Design</div>
+                <div class="skill fade-in">Bootstrap</div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <h3>🔧 Backend</h3>
+            <div class="skills-grid">
+                <div class="skill fade-in">Node.js</div>
+                <div class="skill fade-in">Express.js</div>
+                <div class="skill fade-in">ASP.NET</div>
+                <div class="skill fade-in">Python</div>
+                <div class="skill fade-in">Java</div>
+                <div class="skill fade-in">Flask</div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <h3>💾 Database & Cloud</h3>
+            <div class="skills-grid">
+                <div class="skill fade-in">MongoDB</div>
+                <div class="skill fade-in">MySQL</div>
+                <div class="skill fade-in">Firebase</div>
+                <div class="skill fade-in">Vercel</div>
+                <div class="skill fade-in">REST APIs</div>
+            </div>
+        </div>
+
+        <div class="skills-category">
+            <h3>🤖 Specializations</h3>
+            <div class="skills-grid">
+                <div class="skill fade-in">Machine Learning</div>
+                <div class="skill fade-in">Data Structures</div>
+                <div class="skill fade-in">C++</div>
+                <div class="skill fade-in">Scikit-learn</div>
+                <div class="skill fade-in">Streamlit</div>
+            </div>
+        </div>
     </div>
 </section>
 
 
 <!-- PROJECTS -->
 <section id="projects">
-    <h2 class="section-title">Projects</h2>
+    <h2 class="section-title">Featured Projects</h2>
     <div class="projects-grid">
+
+        <!-- BUSINESS WEBSITE — FEATURED FULLSTACK -->
+        <div class="project-card featured fade-in">
+            <div class="project-header">
+                <div class="fullstack-badge">⚡ Fullstack MERN</div>
+                <h4>💼 Personal Business Website Builder</h4>
+            </div>
+            <div class="project-body">
+                <div class="fullstack-highlight">
+                    <span>🌐</span>
+                    Production-ready platform with Vercel deployment
+                </div>
+                <p>A comprehensive full-stack platform enabling users to create professional business websites without coding. Features a React-based drag-and-drop builder, real-time preview, responsive templates, SEO optimization, and analytics dashboard. Backend powered by Node.js/Express with MongoDB for scalable data management. Deployed on Vercel for instant updates and global CDN coverage.</p>
+                <div class="project-links">
+                    <a href="#" class="project-link"><i class="fas fa-globe"></i> Live Demo</a>
+                    <a href="#" class="project-link"><i class="fas fa-code"></i> GitHub</a>
+                </div>
+                <div class="tech-stack">
+                    <span class="tech-tag">React.js</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">Express</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Firebase Auth</span>
+                    <span class="tech-tag">Vercel</span>
+                    <span class="tech-tag">Tailwind CSS</span>
+                </div>
+            </div>
+        </div>
 
         <!-- MENTAL HEALTH — FEATURED -->
         <div class="project-card featured fade-in">
             <div class="project-header">
-                <div class="featured-badge">Featured Project</div>
+                <div class="featured-badge">✦ AI-Powered</div>
                 <h4>🧠 Mental Health Prediction System</h4>
             </div>
             <div class="project-body">
@@ -705,16 +974,16 @@ footer{
     <h2 class="section-title">Education</h2>
     <div class="timeline">
         <div class="timeline-item fade-in">
-            <strong>Bachelor of Computer Applications (BCA)</strong><br>
-            9.26 GPA | 2022–2025
+            <h4>Bachelor of Computer Applications (BCA)</h4>
+            <p>MCA Student | GPA: 9.26 | 2022–2025</p>
         </div>
         <div class="timeline-item fade-in">
-            <strong>Higher Secondary Certificate (HSC)</strong><br>
-            61.4%
+            <h4>Higher Secondary Certificate (HSC)</h4>
+            <p>Percentage: 61.4%</p>
         </div>
         <div class="timeline-item fade-in">
-            <strong>Secondary School Certificate (SSC)</strong><br>
-            62%
+            <h4>Secondary School Certificate (SSC)</h4>
+            <p>Percentage: 62%</p>
         </div>
     </div>
 </section>
@@ -722,27 +991,40 @@ footer{
 
 <!-- CONTACT -->
 <section id="contact" class="contact fade-in">
-    <h2 class="section-title">Get In Touch</h2>
+    <h2 class="section-title">Let's Connect</h2>
 
-    <p>📧 Email:
-        <a href="/cdn-cgi/l/email-protection#6e051e585e5c5b5b5c2e09030f0702400d0103"><span class="__cf_email__" data-cfemail="6f041f595f5d5a5a5d2f08020e0603410c0002">[email&#160;protected]</span></a>
+    <p>
+        📧 <a href="mailto:krishnaprajapati051020@gmail.com">krishnaprajapati051020@gmail.com</a>
     </p>
 
-    <p>💻 GitHub:
-        <a href="https://github.com/Krishna-0510" target="_blank">github.com/Krishna-0510</a>
+    <p>
+        💻 <a href="https://github.com/Krishna-0510" target="_blank">github.com/Krishna-0510</a>
     </p>
 
-    <p>🔗 LinkedIn:
-        <a href="https://www.linkedin.com/in/krishna-prajapati-781481343/" target="_blank">linkedin.com/in/krishna-prajapati-781481343</a>
+    <p>
+        🔗 <a href="https://www.linkedin.com/in/krishna-prajapati-781481343/" target="_blank">linkedin.com/in/krishna-prajapati</a>
     </p>
+
+    <div class="social-links">
+        <a href="https://github.com/Krishna-0510" target="_blank" class="social-icon" title="GitHub">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/krishna-prajapati-781481343/" target="_blank" class="social-icon" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="mailto:krishnaprajapati051020@gmail.com" class="social-icon" title="Email">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
 </section>
 
 
 <footer>
-    © 2026 Krishna Prajapati | Crafted with passion
+    <p>© 2026 Krishna Prajapati | Full-Stack Developer | Crafted with passion 💻</p>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// Navbar scroll effect
 window.addEventListener('scroll', function() {
     const navbar = document.getElementById('navbar');
     if (window.scrollY > 50) {
@@ -752,6 +1034,7 @@ window.addEventListener('scroll', function() {
     }
 });
 
+// Intersection Observer for fade-in animations
 const observer = new IntersectionObserver(function(entries) {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -764,9 +1047,23 @@ document.querySelectorAll('.fade-in').forEach(element => {
     observer.observe(element);
 });
 
+// Smooth scrolling for navigation links
 document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const targetId = this.getAttribute('href');
         if (targetId && targetId !== '#') {
-            con
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+    });
+});
+</script>
+
+</body>
+</html>
