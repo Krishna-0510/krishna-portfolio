@@ -64,15 +64,15 @@ public class Krishna {
 
 <div align="center">
 
-<img src="https://github-readme-stats.vercel.app/api?username=Krishna-0510&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="165"/>
+<img src="https://github-readme-stats-eight-delta-85.vercel.app/api?username=Krishna-0510&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" height="165"/>
 &nbsp;
-<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Krishna-0510&layout=compact&theme=tokyonight&hide_border=true" height="165"/>
+<img src="https://github-readme-stats-eight-delta-85.vercel.app/api/top-langs/?username=Krishna-0510&layout=compact&theme=tokyonight&hide_border=true" height="165"/>
 
 </div>
 
 <div align="center">
 
-<img src="https://streak-stats.demolab.com/?user=Krishna-0510&theme=tokyonight&hide_border=true" width="60%"/>
+<img src="https://github-readme-streak-stats-eight.vercel.app?user=Krishna-0510&theme=tokyonight&hide_border=true" width="60%"/>
 
 </div>
 
