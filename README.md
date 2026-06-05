@@ -1,4 +1,3 @@
-
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f2027,50:203a43,100:2c5364&height=200&section=header&text=Krishna%20Prajapati&fontSize=50&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20Developer%20%7C%20MCA%2727%20@%20VIT%20Bhopal&descAlignY=58&descSize=18" width="100%"/>
@@ -73,7 +72,7 @@ public class Krishna {
 
 <div align="center">
 
-<img src="https://github-readme-streak-stats.herokuapp.com/?user=Krishna-0510&theme=tokyonight&hide_border=true" width="60%"/>
+<img src="https://streak-stats.demolab.com/?user=Krishna-0510&theme=tokyonight&hide_border=true" width="60%"/>
 
 </div>
 
